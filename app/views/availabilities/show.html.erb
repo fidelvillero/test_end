@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+
 <p>
   <b>Hour on:</b>
   <%= @availability.hour_on %>
@@ -13,6 +15,22 @@
 <p>
   <b>State:</b>
   <%= @availability.state %>
+</p>
+
+<p>
+  <b>Doctor:</b>
+  <%= @availability.doctor_id %>
+</p>
+
+
+<p>
+  <b>User:</b>
+  <%= @availability.user_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @availability.user %>
 </p>
 
 <p>

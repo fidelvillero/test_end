@@ -8,9 +8,9 @@ Project::Application.routes.draw do
 
   devise_for :users#, :as => "pacientes" 
 
-  #root :to => "user#index"
+  #root :to => "doctors#index"
   
-  root :to => "doctors#index"
+  root :to => "availabilities#index"
   
   
   

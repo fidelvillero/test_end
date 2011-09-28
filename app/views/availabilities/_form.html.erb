@@ -1,4 +1,7 @@
 <%= form_for(@availability) do |f| %>
+
+<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+
   <% if @availability.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@availability.errors.count, "error") %> prohibited this availability from being saved:</h2>
@@ -23,6 +26,23 @@
     <%= f.label :state %><br />
     <%= f.text_field :state %>
   </div>
+  <div>
+	<p>
+	   <%= select("@doctor", "name", Doctor.all.collect {|p| [ p.name] }, {:include_blank => true})%>
+	</p>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user %><br />
+    <%= f.text_field :user %>
+  </div>
+
+  
+
+
   <div class="field">
     <%= f.label :doctor %><br />
     <%= f.text_field :doctor %>

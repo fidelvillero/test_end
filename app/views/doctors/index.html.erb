@@ -1,5 +1,7 @@
 <h1>Listing doctors</h1>
 
+<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+
 <table>
   <tr>
     <th>Name</th>
@@ -17,7 +19,6 @@
     <td><%= doctor.name %></td>
     <td><%= doctor.mail %></td>
     <td><%= doctor.address %></td>
-    <td><%= doctor.password %></td>
     <td><%= doctor.role %></td>
     <td><%= link_to 'Show', doctor %></td>
     <td><%= link_to 'Edit', edit_doctor_path(doctor) %></td>

@@ -21,7 +21,7 @@ require 'spec_helper'
 describe AvailabilitiesController do
 
   # This should return the minimal set of attributes required to create a valid
-  # Availability. As you add validations to Availability, be sure to
+  # Availabilitie. As you add validations to Availabilitie, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
     {}
@@ -29,67 +29,67 @@ describe AvailabilitiesController do
 
   describe "GET index" do
     it "assigns all availabilities as @availabilities" do
-      availability = Availability.create! valid_attributes
+      availabilitie = Availabilitie.create! valid_attributes
       get :index
-      assigns(:availabilities).should eq([availability])
+      assigns(:availabilities).should eq([availabilitie])
     end
   end
 
   describe "GET show" do
-    it "assigns the requested availability as @availability" do
-      availability = Availability.create! valid_attributes
-      get :show, :id => availability.id.to_s
-      assigns(:availability).should eq(availability)
+    it "assigns the requested availabilitie as @availabilitie" do
+      availabilitie = Availabilitie.create! valid_attributes
+      get :show, :id => availabilitie.id.to_s
+      assigns(:availabilitie).should eq(availabilitie)
     end
   end
 
   describe "GET new" do
-    it "assigns a new availability as @availability" do
+    it "assigns a new availabilitie as @availabilitie" do
       get :new
-      assigns(:availability).should be_a_new(Availability)
+      assigns(:availabilitie).should be_a_new(Availabilitie)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested availability as @availability" do
-      availability = Availability.create! valid_attributes
-      get :edit, :id => availability.id.to_s
-      assigns(:availability).should eq(availability)
+    it "assigns the requested availabilitie as @availabilitie" do
+      availabilitie = Availabilitie.create! valid_attributes
+      get :edit, :id => availabilitie.id.to_s
+      assigns(:availabilitie).should eq(availabilitie)
     end
   end
 
   describe "POST create" do
     describe "with valid params" do
-      it "creates a new Availability" do
+      it "creates a new Availabilitie" do
         expect {
-          post :create, :availability => valid_attributes
-        }.to change(Availability, :count).by(1)
+          post :create, :availabilitie => valid_attributes
+        }.to change(Availabilitie, :count).by(1)
       end
 
-      it "assigns a newly created availability as @availability" do
-        post :create, :availability => valid_attributes
-        assigns(:availability).should be_a(Availability)
-        assigns(:availability).should be_persisted
+      it "assigns a newly created availabilitie as @availabilitie" do
+        post :create, :availabilitie => valid_attributes
+        assigns(:availabilitie).should be_a(Availabilitie)
+        assigns(:availabilitie).should be_persisted
       end
 
-      it "redirects to the created availability" do
-        post :create, :availability => valid_attributes
-        response.should redirect_to(Availability.last)
+      it "redirects to the created availabilitie" do
+        post :create, :availabilitie => valid_attributes
+        response.should redirect_to(Availabilitie.last)
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved availability as @availability" do
+      it "assigns a newly created but unsaved availabilitie as @availabilitie" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Availability.any_instance.stub(:save).and_return(false)
-        post :create, :availability => {}
-        assigns(:availability).should be_a_new(Availability)
+        Availabilitie.any_instance.stub(:save).and_return(false)
+        post :create, :availabilitie => {}
+        assigns(:availabilitie).should be_a_new(Availabilitie)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Availability.any_instance.stub(:save).and_return(false)
-        post :create, :availability => {}
+        Availabilitie.any_instance.stub(:save).and_return(false)
+        post :create, :availabilitie => {}
         response.should render_template("new")
       end
     end
@@ -97,59 +97,59 @@ describe AvailabilitiesController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested availability" do
-        availability = Availability.create! valid_attributes
+      it "updates the requested availabilitie" do
+        availabilitie = Availabilitie.create! valid_attributes
         # Assuming there are no other availabilities in the database, this
-        # specifies that the Availability created on the previous line
+        # specifies that the Availabilitie created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Availability.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => availability.id, :availability => {'these' => 'params'}
+        Availabilitie.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
+        put :update, :id => availabilitie.id, :availabilitie => {'these' => 'params'}
       end
 
-      it "assigns the requested availability as @availability" do
-        availability = Availability.create! valid_attributes
-        put :update, :id => availability.id, :availability => valid_attributes
-        assigns(:availability).should eq(availability)
+      it "assigns the requested availabilitie as @availabilitie" do
+        availabilitie = Availabilitie.create! valid_attributes
+        put :update, :id => availabilitie.id, :availabilitie => valid_attributes
+        assigns(:availabilitie).should eq(availabilitie)
       end
 
-      it "redirects to the availability" do
-        availability = Availability.create! valid_attributes
-        put :update, :id => availability.id, :availability => valid_attributes
-        response.should redirect_to(availability)
+      it "redirects to the availabilitie" do
+        availabilitie = Availabilitie.create! valid_attributes
+        put :update, :id => availabilitie.id, :availabilitie => valid_attributes
+        response.should redirect_to(availabilitie)
       end
     end
 
     describe "with invalid params" do
-      it "assigns the availability as @availability" do
-        availability = Availability.create! valid_attributes
+      it "assigns the availabilitie as @availabilitie" do
+        availabilitie = Availabilitie.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Availability.any_instance.stub(:save).and_return(false)
-        put :update, :id => availability.id.to_s, :availability => {}
-        assigns(:availability).should eq(availability)
+        Availabilitie.any_instance.stub(:save).and_return(false)
+        put :update, :id => availabilitie.id.to_s, :availabilitie => {}
+        assigns(:availabilitie).should eq(availabilitie)
       end
 
       it "re-renders the 'edit' template" do
-        availability = Availability.create! valid_attributes
+        availabilitie = Availabilitie.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Availability.any_instance.stub(:save).and_return(false)
-        put :update, :id => availability.id.to_s, :availability => {}
+        Availabilitie.any_instance.stub(:save).and_return(false)
+        put :update, :id => availabilitie.id.to_s, :availabilitie => {}
         response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested availability" do
-      availability = Availability.create! valid_attributes
+    it "destroys the requested availabilitie" do
+      availabilitie = Availabilitie.create! valid_attributes
       expect {
-        delete :destroy, :id => availability.id.to_s
-      }.to change(Availability, :count).by(-1)
+        delete :destroy, :id => availabilitie.id.to_s
+      }.to change(Availabilitie, :count).by(-1)
     end
 
     it "redirects to the availabilities list" do
-      availability = Availability.create! valid_attributes
-      delete :destroy, :id => availability.id.to_s
+      availabilitie = Availabilitie.create! valid_attributes
+      delete :destroy, :id => availabilitie.id.to_s
       response.should redirect_to(availabilities_url)
     end
   end

@@ -1,4 +1,7 @@
 class AppointmentsController < ApplicationController
+  
+  before_filter :authenticate_user!, :except => [:some_action_without_auth]
+  
   # GET /appointments
   # GET /appointments.xml
   def index

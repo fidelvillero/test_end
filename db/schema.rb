@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110928153233) do
+ActiveRecord::Schema.define(:version => 20110928201102) do
 
   create_table "appointments", :force => true do |t|
     t.time     "init"
@@ -26,8 +26,9 @@ ActiveRecord::Schema.define(:version => 20110928153233) do
   create_table "availabilities", :force => true do |t|
     t.time     "hour_on"
     t.time     "hour_end"
-    t.string   "state"
+    t.string   "state",      :default => "activo"
     t.integer  "doctor_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
