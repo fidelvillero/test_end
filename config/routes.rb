@@ -10,9 +10,9 @@ Project::Application.routes.draw do
 
   #root :to => "doctors#index"
   
-  root :to => "availabilities#index"
+  #root :to => "availabilities#index" disponibilidad
   
-  
+  root :to => "appointments#index"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

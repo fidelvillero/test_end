@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(:version => 20110928201102) do
   create_table "appointments", :force => true do |t|
     t.time     "init"
     t.time     "end"
-    t.string   "state"
-    t.integer  "user_id"
-    t.integer  "doctor_id"
+    t.string   "state",      :default => "activo"
+    t.string   "doctor"
+    t.string   "user"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

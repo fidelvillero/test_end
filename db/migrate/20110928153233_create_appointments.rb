@@ -3,9 +3,9 @@ class CreateAppointments < ActiveRecord::Migration
     create_table :appointments do |t| #citas
       t.time :init
       t.time :end
-      t.string :state
-      t.references :user
-      t.references :doctor
+      t.string :state, :default => 'activo'
+      t.string :doctor
+      t.string :user
 
       t.timestamps
     end
