@@ -1,0 +1,29 @@
+<h1>Listing availabilities</h1>
+
+<table>
+  <tr>
+    <th>Hour on</th>
+    <th>Hour end</th>
+    <th>State</th>
+    <th>Doctor</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @availabilities.each do |availability| %>
+  <tr>
+    <td><%= availability.hour_on %></td>
+    <td><%= availability.hour_end %></td>
+    <td><%= availability.state %></td>
+    <td><%= availability.doctor %></td>
+    <td><%= link_to 'Show', availability %></td>
+    <td><%= link_to 'Edit', edit_availability_path(availability) %></td>
+    <td><%= link_to 'Destroy', availability, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Availability', new_availability_path %>

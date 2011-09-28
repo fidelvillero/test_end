@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Hour on:</b>
+  <%= @availability.hour_on %>
+</p>
+
+<p>
+  <b>Hour end:</b>
+  <%= @availability.hour_end %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @availability.state %>
+</p>
+
+<p>
+  <b>Doctor:</b>
+  <%= @availability.doctor %>
+</p>
+
+
+<%= link_to 'Edit', edit_availability_path(@availability) %> |
+<%= link_to 'Back', availabilities_path %>
