@@ -1,18 +1,57 @@
-<!DOCTYPE html>
-<html>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>Project</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
+	<%= stylesheet_link_tag :all %>
+	  <%= javascript_include_tag :defaults %>
+	  <%= csrf_meta_tag %>
+
+<title>
+Wufoo &middot; Example Form
+</title>
+
+<!--
+
+Hey friend! This file shows you how 
+the CSS Theme you downloaded looks with 
+some example HTML form markup.
+
+Check out the README.txt for more info.
+
+-->
+
+<!-- Meta Tags -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!-- JavaScript -->
+<script type="text/javascript" src="scripts/wufoo.js"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="css/structure.css" type="text/css" />
+<link rel="stylesheet" href="css/form.css" type="text/css" />
+<link rel="stylesheet" href="css/theme.css" type="text/css" />
+
 </head>
-<body>
 
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
+<body id="public">
 
+<div id="container">
 
-<%= yield %>
+<h1><a id="logo" href="">Wufoo</a></h1>
 
+<form class="wufoo" action="" method="">
+
+<%=yield%>
+<BR>
+<BR>
+<BR>
+<BR>
+<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+<BR>
+<BR>
 </body>
+
 </html>
