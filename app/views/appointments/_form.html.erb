@@ -1,4 +1,7 @@
 <%= form_for(@appointment) do |f| %>
+
+<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+
   <% if @appointment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
@@ -16,9 +19,9 @@
     <%= f.time_select :init %>
   </div>
   <div class="field">
-    <%= f.label :end %><br />
-    <%= f.time_select :end %>
+    <%= f.hidden_field :user%>
   </div>
+  
   
 	<div>
    	Doctor

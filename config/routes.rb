@@ -10,9 +10,12 @@ Project::Application.routes.draw do
 
   #root :to => "doctors#index"
   
-  #root :to => "availabilities#index" disponibilidad
+  #root :to => "availabilities#index" #disponibilidad
   
-  root :to => "appointments#index"
+  root :to => "appointments#index"  #citas
+  
+  #match '/appointments/:@current_user' => 'Appointments#index', :as=>'appointments/new'
+  
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

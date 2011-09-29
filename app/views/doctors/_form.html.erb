@@ -1,6 +1,6 @@
 <%= form_for(@doctor) do |f| %>
 
-	<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
 
   <% if @doctor.errors.any? %>
     <div id="error_explanation">

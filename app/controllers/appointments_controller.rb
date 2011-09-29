@@ -6,6 +6,7 @@ class AppointmentsController < ApplicationController
   # GET /appointments.xml
   def index
     @appointments = Appointment.all
+    @current_user = current_user.role
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,9 +45,12 @@ class AppointmentsController < ApplicationController
   # POST /appointments.xml
   def create
     @appointment = Appointment.new(params[:appointment])
+    @appointment.user = current_user.name
+    
+    #@current_user = current_user.role
 
     respond_to do |format|
-      if @appointment.save
+      if @appointment.save(@appointment)
         format.html { redirect_to(@appointment, :notice => 'Appointment was successfully created.') }
         format.xml  { render :xml => @appointment, :status => :created, :location => @appointment }
       else

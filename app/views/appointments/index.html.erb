@@ -1,31 +1,35 @@
 <h1>Listing appointments</h1>
 
 <table>
-  <tr>
-    <th>Init</th>
-    <th>End</th>
-    <th>State</th>
-    <th>User</th>
-    <th>Doctor</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<% if @current_user.eql?'Admin' %>
+	  <tr>
+	    <th>Init</th>
+	    <th>End</th>
+	    <th>State</th>
+	    <th>User</th>
+	    <th>Doctor</th>
+	    <th></th>
+	    <th></th>
+	    <th></th>
+	  </tr>
 
-<% @appointments.each do |appointment| %>
-  <tr>
-    <td><%= appointment.init %></td>
-    <td><%= appointment.end %></td>
-    <td><%= appointment.state %></td>
-    <td><%= appointment.user %></td>
-    <td><%= appointment.doctor %></td>
-    <td><%= link_to 'Show', appointment %></td>
-    <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
-    <td><%= link_to 'Destroy', appointment, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+	<%= p @current_user%>
+
+	<% @appointments.each do |appointment| %>
+	  <tr>
+	    <td><%= appointment.init %></td>
+	    <td><%= appointment.end %></td>
+	    <td><%= appointment.state %></td>
+	    <td><%= appointment.user %></td>
+	    <td><%= appointment.doctor %></td>
+	    <td><%= link_to 'Show', appointment %></td>
+	    <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
+	    <td><%= link_to 'Destroy', appointment, :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+<% end%>
 </table>
 
 <br />
 
-<%= link_to 'New Appointment', new_appointment_path %>
+<%= link_to 'New Appointment', new_appointment_path() %>
