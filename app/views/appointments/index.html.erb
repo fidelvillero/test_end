@@ -1,7 +1,7 @@
 <h1>Listing appointments</h1>
 
 <table>
-<% if @current_user.eql?'Admin' %>
+<%# if @current_user.eql?'Admin' %>
 	  <tr>
 	    <th>Init</th>
 	    <th>End</th>
@@ -13,8 +13,8 @@
 	    <th></th>
 	  </tr>
 
-	<%= p @current_user%>
-
+	<%= @current_user.name%>
+<%# if @appointments%>
 	<% @appointments.each do |appointment| %>
 	  <tr>
 	    <td><%= appointment.init %></td>
@@ -27,7 +27,7 @@
 	    <td><%= link_to 'Destroy', appointment, :confirm => 'Are you sure?', :method => :delete %></td>
 	  </tr>
 	<% end %>
-<% end%>
+<%# end%>
 </table>
 
 <br />

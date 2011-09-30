@@ -1,6 +1,7 @@
 Project::Application.routes.draw do
   
   resources :appointments
+  #match '/appointments/new/:current_user' => 'Appointment#show', :as=>'/appointments/new/'
 
   resources :availabilities
 

@@ -1,12 +1,10 @@
-class AvailabilitiesController < ApplicationController # disponibilidades
-  # GET /availabilities
-  # GET /availabilities.xml
+class AvailabilitiesController < ApplicationController
   
   before_filter :authenticate_user!, :except => [:some_action_without_auth]
-  
+  # GET /availabilities
+  # GET /availabilities.xml
   def index
-    @availabilities = Availabilitie.all
-    #%w(bat #{str} cat rat)
+    @availabilities = Availability.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,7 +15,7 @@ class AvailabilitiesController < ApplicationController # disponibilidades
   # GET /availabilities/1
   # GET /availabilities/1.xml
   def show
-    @availability = Availabilitie.find(params[:id])
+    @availability = Availability.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -28,7 +26,7 @@ class AvailabilitiesController < ApplicationController # disponibilidades
   # GET /availabilities/new
   # GET /availabilities/new.xml
   def new
-    @availability = Availabilitie.new
+    @availability = Availability.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -38,17 +36,17 @@ class AvailabilitiesController < ApplicationController # disponibilidades
 
   # GET /availabilities/1/edit
   def edit
-    @availability = Availabilitie.find(params[:id])
+    @availability = Availability.find(params[:id])
   end
 
   # POST /availabilities
   # POST /availabilities.xml
   def create
-    @availability = Availabilitie.new(params[:availability])
+    @availability = Availability.new(params[:availability])
 
     respond_to do |format|
       if @availability.save
-        format.html { redirect_to(@availability, :notice => 'Availabilitie was successfully created.') }
+        format.html { redirect_to(@availability, :notice => 'Availability was successfully created.') }
         format.xml  { render :xml => @availability, :status => :created, :location => @availability }
       else
         format.html { render :action => "new" }
@@ -60,11 +58,11 @@ class AvailabilitiesController < ApplicationController # disponibilidades
   # PUT /availabilities/1
   # PUT /availabilities/1.xml
   def update
-    @availability = Availabilitie.find(params[:id])
+    @availability = Availability.find(params[:id])
 
     respond_to do |format|
       if @availability.update_attributes(params[:availability])
-        format.html { redirect_to(@availability, :notice => 'Availabilitie was successfully updated.') }
+        format.html { redirect_to(@availability, :notice => 'Availability was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -76,7 +74,7 @@ class AvailabilitiesController < ApplicationController # disponibilidades
   # DELETE /availabilities/1
   # DELETE /availabilities/1.xml
   def destroy
-    @availability = Availabilitie.find(params[:id])
+    @availability = Availability.find(params[:id])
     @availability.destroy
 
     respond_to do |format|

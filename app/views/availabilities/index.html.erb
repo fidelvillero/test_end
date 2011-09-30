@@ -1,18 +1,10 @@
 <h1>Listing availabilities</h1>
 
-<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-
-<%= p current_user.role%><br>
-<%= p user_signed_in?%>
-
 <table>
   <tr>
     <th>Hour on</th>
     <th>Hour end</th>
     <th>State</th>
-    <th>Doctor</th>
-    <th>User</th>
-    <th>User</th>
     <th>Doctor</th>
     <th></th>
     <th></th>
@@ -24,9 +16,6 @@
     <td><%= availability.hour_on %></td>
     <td><%= availability.hour_end %></td>
     <td><%= availability.state %></td>
-    <td><%= availability.doctor_id %></td>
-    <td><%= availability.user_id %></td>
-    <td><%= availability.user %></td>
     <td><%= availability.doctor %></td>
     <td><%= link_to 'Show', availability %></td>
     <td><%= link_to 'Edit', edit_availability_path(availability) %></td>
@@ -37,4 +26,4 @@
 
 <br />
 
-<%= link_to 'New Availabilitie', new_availability_path %>
+<%= link_to 'New Availability', new_availability_path %>

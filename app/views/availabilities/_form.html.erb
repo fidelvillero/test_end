@@ -1,6 +1,8 @@
-<%= form_for(@availability) do |f| %> 
+<%= form_for(@availability) do |f| %>
 
 <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+<%= link_to('Doctor', doctors_path) %>
+<%= link_to('Availabilities', availabilities_path) %>
 
   <% if @availability.errors.any? %>
     <div id="error_explanation">
@@ -15,21 +17,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :start_time %><br />
+    <%= f.label :hour_on %><br />
     <%= f.time_select :hour_on %>
   </div>
   <div class="field">
-    <%= f.label :End_Time %><br />
+    <%= f.label :hour_end %><br />
     <%= f.time_select :hour_end %>
   </div>
   
-  <div>
-		Doctor
-	
-	   <%= select("@doctor", "name", Doctor.all.collect {|p| [ p.name] }, {:prompt => 'Select Doctor'})%>
-  </div>
-  <BR>
-	
+  
   <div class="actions">
     <%= f.submit %>
   </div>

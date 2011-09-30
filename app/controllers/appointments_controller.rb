@@ -5,9 +5,19 @@ class AppointmentsController < ApplicationController
   # GET /appointments
   # GET /appointments.xml
   def index
-    @appointments = Appointment.all
-    @current_user = current_user.role
-
+    p ">>INICIO >>>>>>>>"
+   @appointments= Appointment.all
+   p ">>>>>>>>>>"
+   y @appointments[0]
+      if current_user.role.eql? "Paciente"
+        #@appointments.where(:id => current_user.id, :user => @appointments.name)
+        #p ">>>>>>>>>>" + @appointments
+        @user = current_user.name
+        #----------- has_and_belongs_to_many
+        #p @appointment << @appointment.find(params[:user=>@user])
+      else
+         @appointments = Appointment.all
+      end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @appointments }
