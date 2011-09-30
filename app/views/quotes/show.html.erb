@@ -1,13 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Init:</b>
-  <%= @quote.init %>
+  <b>hour_init:</b>
+  <%= @quote.hour_init %>
 </p>
 
 <p>
-  <b>End:</b>
-  <%= @quote.end %>
+  <b>hour_end:</b>
+  <%= @quote.hour_end %>
+</p>
+
+<p>
+  <b>date_init:</b>
+  <%= @quote.date_init %>
+</p>
+
+<p>
+  <b>date_end:</b>
+  <%= @quote.date_end %>
 </p>
 
 <p>
@@ -15,15 +25,6 @@
   <%= @quote.state %>
 </p>
 
-<p>
-  <b>Id doctors:</b>
-  <%= @quote.id_doctors %>
-</p>
-
-<p>
-  <b>Id user:</b>
-  <%= @quote.id_user %>
-</p>
 
 
 <%= link_to 'Edit', edit_quote_path(@quote) %> |

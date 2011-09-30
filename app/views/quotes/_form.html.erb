@@ -12,22 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :init %><br />
-    <%= f.time_select :init %>
+    <%= f.label :hour_init %><br />
+    <%= f.time_select :hour_init %>
+  </div>
+  <div class="field">
+    <%= f.label :date_init %><br />
+    <%= f.date_select :date_init %>
   </div>
   
-  <div class="field">
-    <%#= f.label :id_doctors %><br />
-    <%#= f.text_field :id_doctors %>
-  </div>
 	<div>
-   	Doctor
-		
-        <%= f.select(:doctor_id, :user_id,  Doctor.all.collect {|p| [ p.name] }, {:prompt => 'Select Doctor'})%>
+   	Doctor		
+        <%= f.select(:doctor_id,  Doctor.all.collect {|p| [ p.name, p.id] }, {:prompt => 'Select Doctor'})%>
 	</div>
   <div class="field">
-    <%#= f.label :id_user %><br />
-    <%#= f.text_field :id_user %>
+    
   </div>
   <div class="actions">
     <%= f.submit %>

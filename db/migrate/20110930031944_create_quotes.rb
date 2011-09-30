@@ -1,11 +1,13 @@
 class CreateQuotes < ActiveRecord::Migration
   def self.up
     create_table :quotes do |t|
-      t.time :init
-      t.time :end
+      t.time :hour_init
+      t.date :date_init
+      t.time :hour_end
+      t.date :date_end
       t.string :state, :default => 'activo'
-      t.integer :id_doctor
-      t.integer :id_user
+      t.integer :doctor_id
+      t.integer :user_id
 
       t.timestamps
     end

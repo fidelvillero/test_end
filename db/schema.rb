@@ -44,11 +44,13 @@ ActiveRecord::Schema.define(:version => 20110930031944) do
   end
 
   create_table "quotes", :force => true do |t|
-    t.time     "init"
-    t.time     "end"
+    t.time     "hour_init"
+    t.date     "date_init"
+    t.time     "hour_end"
+    t.date     "date_end"
     t.string   "state",      :default => "activo"
-    t.integer  "id_doctor"
-    t.integer  "id_user"
+    t.integer  "doctor_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -73,7 +75,7 @@ ActiveRecord::Schema.define(:version => 20110930031944) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "id_doctors"
+    t.integer  "id_doctor"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

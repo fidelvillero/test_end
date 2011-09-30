@@ -12,4 +12,5 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda'
   gem 'simplecov'
+  gem 'ruby-debug19', :require => "ruby-debug"
 end

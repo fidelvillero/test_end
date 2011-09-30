@@ -4,9 +4,8 @@
   <tr>
     <th>Init</th>
     <th>End</th>
+	<th>date_init</th>
     <th>State</th>
-    <th>Id doctors</th>
-    <th>Id user</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,14 +13,18 @@
 
 <% @quotes.each do |quote| %>
   <tr>
-    <td><%= quote.init %></td>
-    <td><%= quote.end %></td>
+    <td><%= quote.hour_init %></td>
+    <td><%= quote.hour_end %></td>
     <td><%= quote.state %></td>
-    <td><%= quote.id_doctors %></td>
-    <td><%= quote.id_user %></td>
+	<td><%= quote.date_init %></td>
+	<td></td>
+	<td></td>
+	<td></td>
     <td><%= link_to 'Show', quote %></td>
     <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
-    <td><%= link_to 'Destroy', quote, :confirm => 'Are you sure?', :method => :delete %></td>
+	<% if current_user.eql?("Admin")%>
+    	<td><%= link_to 'Destroy', quote, :confirm => 'Are you sure?', :method => :delete %></td>
+	<% end%>
   </tr>
 <% end %>
 </table>

@@ -4,7 +4,14 @@ class QuotesController < ApplicationController
   
   before_filter :authenticate_user!, :except => [:some_action_without_auth]
   def index
-    @quotes = Quote.all
+    #@quotes = Quote.all
+    if current_user.role.eql? "Admin"
+      @quotes = Quote.all
+    else
+      p current_user.id
+      p @quotes = Quote.where(:user_id => current_user.id)
+      #p  @quote = Quote.find_by_user_id(current_user.id)
+    end
 =begin
     if current_user.role.eql? "Paciente"
        @quote = Quote(:user_id => @user_id, :doctors_id => @doctors_id)
@@ -49,6 +56,8 @@ class QuotesController < ApplicationController
   # POST /quotes.xml
   def create
      y @quote = Quote.new(params[:quote])
+     #debugger
+     y @quote.user = current_user
     #@quote = Appointment(:customer_id => @customer_id, :carseller_id => @carseller_id)
     #y @quote.id_user = current_user.id
     #y @quote.id_doctors = :id_doctors
