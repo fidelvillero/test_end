@@ -1,6 +1,9 @@
-class Appointment < ActiveRecord::Base
-  
-  has_many :appointments
+class Quote < ActiveRecord::Base
+  #has_many :quotes
+  belongs_to :doctor, :foreign_key => "id_doctor"
+  belongs_to :doctor, :foreign_key => "id_user"
+  belongs_to :user
+  belongs_to :doctor
   
   before_save :end_quote
   #before_save :save_user

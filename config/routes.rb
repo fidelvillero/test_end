@@ -1,19 +1,22 @@
 Project::Application.routes.draw do
+
+  devise_for :users#, :as => "pacientes" 
   
-  resources :appointments
+  resources :quotes #citas ..!
+  #  xxxxxxxxxxxxxxxxxxxxxxxxx  resources :appointments
   #match '/appointments/new/:current_user' => 'Appointment#show', :as=>'/appointments/new/'
 
   resources :availabilities
 
   resources :doctors
 
-  devise_for :users#, :as => "pacientes" 
+  
 
   #root :to => "doctors#index"
   
   #root :to => "availabilities#index" #disponibilidad
   
-  root :to => "appointments#index"  #citas
+  root :to => "quotes#index"  #citas
   
   #match '/appointments/:@current_user' => 'Appointments#index', :as=>'appointments/new'
   
