@@ -2,6 +2,7 @@ class QuotesController < ApplicationController
   # GET /quotes
   # GET /quotes.xml
   
+  
   before_filter :authenticate_user!, :except => [:some_action_without_auth]
   def index
     #@quotes = Quote.all

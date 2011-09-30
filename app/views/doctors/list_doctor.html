@@ -1,21 +1,20 @@
-<h1>Listing quotes</h1>
+<h1>Listing doctors</h1>
+
 <table>
   <tr>
-    <th>Init</th>
-    <th>End</th>
-    <th>State</th>
-	<th>date_init</th>
+    <th>Name</th>
+    <th>E_mail</th>
+	<th>Address</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
-<% @quotes.each do |quote| %>
+<% @doctors.each do |doctor| %>
   <tr>
-    <td><%= quote.hour_init %></td>
-    <td><%= quote.hour_end %></td>
-    <td><%= quote.state %></td>
-	<td><%= quote.date_init %></td>
+    <td><%= doctor.name %></td>
+    <td><%= doctor.mail %></td>
+    <td><%= doctor.address %></td>
 	<td></td>
 	<td></td>
 	<td></td>
@@ -29,5 +28,3 @@
 </table>
 
 <br />
-
-<%= link_to 'New Quote', new_quote_path %>

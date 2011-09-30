@@ -3,6 +3,9 @@ class DoctorsController < ApplicationController
   # GET /doctors.xml
   
   before_filter :authenticate_user!, :except => [:some_action_without_auth]
+  def showDoctors
+    render :file => 'app/views/doctors/list_doctor'
+  end
   
   def index
     @doctors = Doctor.all

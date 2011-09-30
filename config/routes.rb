@@ -5,12 +5,10 @@ Project::Application.routes.draw do
   resources :quotes #citas ..!
   #  xxxxxxxxxxxxxxxxxxxxxxxxx  resources :appointments
   #match '/appointments/new/:current_user' => 'Appointment#show', :as=>'/appointments/new/'
-
+  
   resources :availabilities
 
   resources :doctors
-
-  
 
   #root :to => "doctors#index"
   
