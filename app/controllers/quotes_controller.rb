@@ -5,21 +5,17 @@ class QuotesController < ApplicationController
   
   before_filter :authenticate_user!, :except => [:some_action_without_auth]
   def index
-    #@quotes = Quote.all
     if current_user.role.eql? "Admin"
       @quotes = Quote.all
     else
-      p current_user.id
-      p @quotes = Quote.where(:user_id => current_user.id)
-      #p  @quote = Quote.find_by_user_id(current_user.id)
+      if current_user.role.eql?("Doctor")
+        current_user.id
+        @quotes = Quote.where(:doctor_id => current_user.id)
+      else
+        @quotes = Quote.where(:user_id => current_user.id)
+      end
     end
-=begin
-    if current_user.role.eql? "Paciente"
-       @quote = Quote(:user_id => @user_id, :doctors_id => @doctors_id)
-    else
-       @quote = Quote.all
-    end
-=end
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @quotes }
@@ -56,12 +52,15 @@ class QuotesController < ApplicationController
   # POST /quotes
   # POST /quotes.xml
   def create
-     y @quote = Quote.new(params[:quote])
+     @quote = Quote.new(params[:quote])
+     @init = @quote.hour_init.to_s.split(" ")
+     @init[1]
+     @quote.hour_init = @init[1]
+     @end = @quote.hour_end.to_s.split(" ")
+     @quote.hour_end = @end[1]
+     
      #debugger
-     y @quote.user = current_user
-    #@quote = Appointment(:customer_id => @customer_id, :carseller_id => @carseller_id)
-    #y @quote.id_user = current_user.id
-    #y @quote.id_doctors = :id_doctors
+     @quote.user_id = current_user.id
 
     respond_to do |format|
       if @quote.save
@@ -78,9 +77,18 @@ class QuotesController < ApplicationController
   # PUT /quotes/1.xml
   def update
     @quote = Quote.find(params[:id])
-
+    user_id = @quote.user_id
+    user_id
+    @usuar = User.find_by_id(user_id)
+    @usuar = @usuar.email
+    y @usuar
+    @quote
+    
     respond_to do |format|
       if @quote.update_attributes(params[:quote])
+        @typeMessage = @quote.state 
+        #envia el e_mail
+        UserMailer.registration_confirmation(@usuar, @typeMessage).deliver
         format.html { redirect_to(@quote, :notice => 'Quote was successfully updated.') }
         format.xml  { head :ok }
       else
@@ -88,6 +96,7 @@ class QuotesController < ApplicationController
         format.xml  { render :xml => @quote.errors, :status => :unprocessable_entity }
       end
     end
+    
   end
 
   # DELETE /quotes/1

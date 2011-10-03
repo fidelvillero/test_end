@@ -119,6 +119,7 @@ PLATFORMS
 DEPENDENCIES
   devise (= 1.4.5)
   jquery-rails
+  mail
   rails (= 3.0.10)
   rspec-rails
   ruby-debug19

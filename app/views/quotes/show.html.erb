@@ -1,22 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>hour_init:</b>
-  <%= @quote.hour_init %>
+  <b>Hour init:</b>
+  <%= @hour_init %>
 </p>
 
 <p>
-  <b>hour_end:</b>
-  <%= @quote.hour_end %>
+  <b>Hour end:</b>
+  <%= @hour_end %>
 </p>
 
 <p>
-  <b>date_init:</b>
+  <b>Date init:</b>
   <%= @quote.date_init %>
 </p>
 
 <p>
-  <b>date_end:</b>
+  <b>Date end:</b>
   <%= @quote.date_end %>
 </p>
 
@@ -26,6 +26,11 @@
 </p>
 
 
+<% if current_user.role.eql?("Admin")%>
+	<%= link_to 'Edit', edit_quote_path(@quote) %>
+<% end%>
+<% if current_user.role.eql?("Doctor")%>
+	<%= link_to 'Edit', edit_quote_path(@quote) %>
+<% end%>
 
-<%= link_to 'Edit', edit_quote_path(@quote) %> |
 <%= link_to 'Back', quotes_path %>

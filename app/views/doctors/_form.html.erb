@@ -1,8 +1,5 @@
 <%= form_for(@doctor) do |f| %>
 
-<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-<%= link_to('Availabilities', availabilities_path) %>
-
   <% if @doctor.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@doctor.errors.count, "error") %> prohibited this doctor from being saved:</h2>
@@ -30,6 +27,10 @@
   <div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :university %><br />
+    <%= f.text_field :university %>
   </div>
   
   <div class="actions">

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110930031944) do
+ActiveRecord::Schema.define(:version => 20111003082426) do
 
   create_table "appointments", :force => true do |t|
     t.time     "init"
@@ -26,21 +26,28 @@ ActiveRecord::Schema.define(:version => 20110930031944) do
   create_table "availabilities", :force => true do |t|
     t.time     "hour_on"
     t.time     "hour_end"
-    t.string   "state",      :default => "activo", :null => false
-    t.string   "doctor"
+    t.string   "state",      :default => "activo"
+    t.integer  "doctor_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "doctors", :force => true do |t|
-    t.string   "name"
-    t.string   "mail"
-    t.string   "address"
-    t.string   "password"
-    t.string   "role",       :default => "Doctor", :null => false
+    t.integer  "doctor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "id_user"
+  end
+
+  create_table "events", :force => true do |t|
+    t.string   "title"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.boolean  "all_day"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "quotes", :force => true do |t|
@@ -58,13 +65,11 @@ ActiveRecord::Schema.define(:version => 20110930031944) do
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "",         :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "",         :null => false
-    t.string   "role",                                  :default => "Paciente", :null => false
     t.string   "name"
+    t.string   "role",                                  :default => "Paciente"
     t.string   "EPS"
     t.string   "address"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
+    t.string   "university"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

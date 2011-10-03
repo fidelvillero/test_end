@@ -19,10 +19,11 @@
 
 
 <p>
-  <b>Role:</b>
-  <%= @doctor.role %>
+  <b>University:</b>
+  <%= @doctor.university %>
 </p>
 
-
-<%= link_to 'Edit', edit_doctor_path(@doctor) %> |
-<%= link_to 'Back', doctors_path %>
+<% if current_user.eql?("Admin")%>
+	<%= link_to 'Edit', edit_doctor_path(@doctor) %> |
+<% end%>
+	<%= link_to 'Back', doctors_path %>

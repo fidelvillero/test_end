@@ -10,10 +10,8 @@ class Quote < ActiveRecord::Base
   
   validates_uniqueness_of :doctor_id, :scope => [:hour_init, :hour_end, :date_init, :date_end]
   #validates :doctor_id, :uniqueness => {:scope => :hour_init, :scope => :date_end} 
-  #validates_presence_of :init, :message => 'pleace is require'
+  validates_presence_of :doctor_id, :message => 'pleace is require'
   validates_presence_of :state, :message => 'pleace is require'
-  #validates_presence_of :doctor, :message => 'pleace is require'
-  #validates_presence_of :user, :message => 'pleace is require'
   
   private
   def hour_finally

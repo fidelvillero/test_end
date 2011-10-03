@@ -1,33 +1,40 @@
-<h1>Listing quotes</h1>
-<table>
+<h1>Listing Appointment</h1>
+<table align=center  border=1 cellspacing=0 cellpadding=2 bordercolor="666633">
   <tr>
     <th>Init</th>
     <th>End</th>
     <th>State</th>
-	<th>date_init</th>
+	<th>Date</th>
+	<!-- <th>Name Patient</th> -->
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @quotes.each do |quote| %>
-  <tr>
-    <td><%= quote.hour_init %></td>
-    <td><%= quote.hour_end %></td>
+
+		<%= hour_init = quote.hour_init.to_s.split(" ") %>
+    	<%= hour_end = quote.hour_end.to_s.split(" ") %>
+        <%= nameUser = User.find_by_id(quote.user_id)%>
+		
+		<%#= p nameUser = User.where(:id => quote.user_id)%>
+	
+    <td><%= hour_init[1] %></td>
+	<td><%= hour_end[1] %></td>
     <td><%= quote.state %></td>
 	<td><%= quote.date_init %></td>
-	<td></td>
-	<td></td>
-	<td></td>
+	<!-- <td><%#= nameUser.name%></td> -->
     <td><%= link_to 'Show', quote %></td>
-    <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
-	<% if current_user.eql?("Admin")%>
+	<% if current_user.role.eql?("Admin")%>
+		<td><%= link_to 'Edit', edit_quote_path(quote) %></td>
     	<td><%= link_to 'Destroy', quote, :confirm => 'Are you sure?', :method => :delete %></td>
+	<% end%>
+	<% if current_user.role.eql?("Doctor")%>
+		<td><%= link_to 'Edit', edit_quote_path(quote) %></td>
 	<% end%>
   </tr>
 <% end %>
 </table>
-
 <br />
 
-<%= link_to 'New Quote', new_quote_path %>
+<%= link_to 'New Appointment', new_quote_path %>

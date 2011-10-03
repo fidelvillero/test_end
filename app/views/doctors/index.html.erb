@@ -1,6 +1,4 @@
-<h1>Listing doctors</h1>
-
-<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+<h1>List doctors</h1>
 
 <table>
   <tr>
@@ -15,18 +13,28 @@
   </tr>
 
 <% @doctors.each do |doctor| %>
+<%= userName = User.find_by_id(doctor.doctor_id)%>
   <tr>
-    <td><%= doctor.name %></td>
-    <td><%= doctor.mail %></td>
-    <td><%= doctor.address %></td>
-    <td><%= doctor.role %></td>
-    <td><%= link_to 'Show', doctor %></td>
-    <td><%= link_to 'Edit', edit_doctor_path(doctor) %></td>
-    <td><%= link_to 'Destroy', doctor, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%#= doctor.name %></td>
+    <td><%= doctor.doctor_id %></td>
+	<td><%= userName.name %></td>
+    <td><%#= doctor.address %></td>
+    <td><%#= doctor.role %></td>
+    <td><%#= link_to 'Show', doctor %></td>
+	<% if current_user.role.eql?("Admin")%>
+		<td><%= link_to 'Edit', edit_doctor_path(doctor) %></td>
+	    <td><%= link_to 'Destroy', doctor, :confirm => 'Are you sure?', :method => :delete %></td>
+	<% end%>
+	<% if current_user.role.eql?("Doctor")%>
+		<td><%s= link_to 'Edit', edit_doctor_path(doctor) %></td>
+		<td><%#= link_to 'Edit', edit_doctor_path(doctor) %></td>
+	<% end%>
+    
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Doctor', new_doctor_path %>
+<% if current_user.role.eql?("Admin")%>
+	<%= link_to 'New Doctor', new_doctor_path %>
+<% end%>

@@ -1,6 +1,9 @@
 Project::Application.routes.draw do
 
+  root :to => "quotes#index"  #citas
+
   devise_for :users#, :as => "pacientes" 
+  #match '/users/sign_out' =>'devise/sessions#destroy',:as=>'destroy_user'
   
   resources :quotes #citas ..!
   #  xxxxxxxxxxxxxxxxxxxxxxxxx  resources :appointments
@@ -9,12 +12,15 @@ Project::Application.routes.draw do
   resources :availabilities
 
   resources :doctors
+  
+  resources :events
+
+    get "calendar/index"
 
   #root :to => "doctors#index"
   
   #root :to => "availabilities#index" #disponibilidad
   
-  root :to => "quotes#index"  #citas
   
   #match '/appointments/:@current_user' => 'Appointments#index', :as=>'appointments/new'
   
