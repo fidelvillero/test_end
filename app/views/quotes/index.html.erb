@@ -12,11 +12,11 @@
   </tr>
 
 <% @quotes.each do |quote| %>
-
+<div class="hidden">
 		<%= hour_init = quote.hour_init.to_s.split(" ") %>
     	<%= hour_end = quote.hour_end.to_s.split(" ") %>
         <%= nameUser = User.find_by_id(quote.user_id)%>
-		
+</div>		
 		<%#= p nameUser = User.where(:id => quote.user_id)%>
 	
     <td><%= hour_init[1] %></td>

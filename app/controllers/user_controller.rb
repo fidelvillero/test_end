@@ -5,6 +5,7 @@ class UserController < ApplicationController
     # Access Current User
     def index
         @things = current_user.things
+        #@current_user = current_user
     end
     
 end

@@ -4,10 +4,8 @@
 <!DOCTYPE html>
 <html>
 <%= link_to('Appointment', quotes_path)%>
-<%= link_to('Availabilities', availabilities_path)%>
-<%= link_to('Register', new_user_registration_path)  %>  
-<%= link_to('Events', events_path)  %>
-<%#= link_to "Sign up", new_registration_path(resource_name) %><br />
+<%= link_to('Register', new_doctor_path)  %>  
+<%= link_to('Events', events_path)%>
 <div style="float:right"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></div>  
 
 <head>
